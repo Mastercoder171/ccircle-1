@@ -1,5 +1,7 @@
 # Your solution goes in this file!
 
+
+
 '''
   --- ACCOUNT ------------------------------------------------------------------
 
@@ -36,6 +38,9 @@
       You must have enough shares in your account or the function will fail!
 '''
 
+
+
+import ccircle
 class StockTrader:
     def __init__(self):
         # Set variables if you want
@@ -46,11 +51,11 @@ class StockTrader:
     #    0.5 -> moderate
     #    1.0 -> hardest
     def getDifficulty(self):
-        return 0.0
+        return 0.1
 
     # Controls how fast the simulation runs; 0 = fastest
     def getPauseTime(self):
-        return 0.1
+        return 0.5
 
     # Use different numbers to get different random variations of the simulation
     def getSeed(self):
@@ -66,4 +71,10 @@ class StockTrader:
             if price < 10 and account.getBalance() >= price:
                 market.buy(account, sym, 1)
             if price > 10 and account.getShares(sym) > 0:
+                market.sell(account, sym, 1)
+
+            if ccircle.isKeyDown("b"):
+                market.buy(account, sym, 10)
+
+            if ccircle.isKeyDown("s"):
                 market.sell(account, sym, 1)
