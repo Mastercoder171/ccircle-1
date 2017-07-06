@@ -51,11 +51,12 @@ class StockTrader:
     #    0.5 -> moderate
     #    1.0 -> hardest
     def getDifficulty(self):
-        return 1
+        return 0.1
 
     # Controls how fast the simulation runs; 0 = fastest
     def getPauseTime(self):
-        return 0
+        return 0.5
+
     # Use different numbers to get different random variations of the simulation
     def getSeed(self):
         return 1337
@@ -68,9 +69,9 @@ class StockTrader:
         for sym in syms:
             price = market.getPrice(sym)
             if price < 10 and account.getBalance() >= price:
-                market.buy(account, sym, 100)
-            if price > 70 and account.getShares(sym) > 0:
-                market.sell(account, sym, 100)
+                market.buy(account, sym, 1)
+            if price > 10 and account.getShares(sym) > 0:
+                market.sell(account, sym, 1)
 
             if ccircle.isKeyDown("b"):
                 market.buy(account, sym, 10)
