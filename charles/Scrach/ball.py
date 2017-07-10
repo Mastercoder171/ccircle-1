@@ -1,10 +1,15 @@
 class Ball:
-    def __init__(self, x, y, vx, vy, fx, fy, mass):
+    # Ball(x,y)
+    def __init__(self, x, y, vx):
         self.x = x
         self.y = y
-        self.vy = 0
-        self.vx = 0
-        self.fy = 0
-        self.fx = 0
-        self.mass = 1
+        self.vx = vxA
+        self.size = 10
 
+    def draw(self, window):
+        window.drawCircle(self.x, self.y, self.size, 0, 0.3, 0.5)
+
+    def update(self):
+        self.x += self.vx
+        if self.x >= (800 - self.size) or self.x <= self.size:
+            self.vx *= -1
