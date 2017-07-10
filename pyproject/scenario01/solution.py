@@ -55,25 +55,25 @@ class Solution:
 
     # Choose your level here: 'worlds.easy()', 'worlds.medium()', or 'worlds.hard()'!
     def getLevel(self):
-        return worlds.medium()
+        return worlds.hard()
 
     # Smaller pause time = faster simulation
     def getPauseTime(self):
-        return 0.000000000000000000001
+        return 0.1
 
     # Your solution!
     def moveTowardPizza(self, cat):
         # Wheeeee!
         if ccircle.isKeyDown("up"):
-            #if not self.hasPressed:
+            if not self.hasPressed:
                 cat.walk()
                 #self.hasPressed = True
         elif ccircle.isKeyDown("left"):
-            #if not self.hasPressed:
+            if not self.hasPressed:
                 cat.turnLeft()
                 #self.hasPressed = True
         elif ccircle.isKeyDown("right"):
-            #if not self.hasPressed:
+            if not self.hasPressed:
                 cat.turnRight()
                 #self.hasPressed = True
         #else:
