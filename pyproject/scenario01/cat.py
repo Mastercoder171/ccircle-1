@@ -72,7 +72,7 @@ class Handler:
             self._cb.moveTowardPizza(self)
             cell = self.world.getCell(self.cat.tx, self.cat.ty)
             if cell == None or cell == CellWall:
-                self._failure = True
+                self._failure = False
             if cell == CellGoal:
                 self._success = True
 

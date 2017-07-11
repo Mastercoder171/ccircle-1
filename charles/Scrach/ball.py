@@ -1,9 +1,10 @@
 class Ball:
     # Ball(x,y)
-    def __init__(self, x, y, vx):
+    def __init__(self, x, y, vx, vy):
         self.x = x
         self.y = y
-        self.vx = vxA
+        self.vx = vx
+        self.vy = vy
         self.size = 10
 
     def draw(self, window):
@@ -11,5 +12,19 @@ class Ball:
 
     def update(self):
         self.x += self.vx
-        if self.x >= (800 - self.size) or self.x <= self.size:
-            self.vx *= -1
+
+        # print(self.x)
+        # print(self.vy)
+        # print(self.vx)
+
+        rightWall = (800 - self.size)
+        leftWall = self.size
+        if self.x > rightWall or self.x < leftWall:
+            self.vx *= -0.82
+            self.x = leftWall if self.x < leftWall else rightWall
+
+        self.y += self.vy
+        self.vy += 0.1
+        if self.y >= (550 - self.size) or self.y <= self.size:
+            self.vy *= -0.90
+
