@@ -48,7 +48,9 @@ import worlds
 class Solution:
     def __init__(self):
         # If you want to keep track of any variables, you can initialize them here using self.var = value
-        self.was_wall_on_right_last_frame = False
+        # e.g.
+        #   self.moveCount = 0
+        self.hasPressed = False
         pass
 
     # Choose your level here: 'worlds.easy()', 'worlds.medium()', or 'worlds.hard()'!
@@ -59,30 +61,22 @@ class Solution:
     def getPauseTime(self):
         return 0.01
 
-    def wall_on_right(self, cat):
-        cat.turnRight()
-        wall_on_right = cat.isBlocked()
-        cat.turnLeft()
-
-        return wall_on_right
-
-    """ Solution assulmes two things:
-            1) Cat always starts beside a wall.
-            2) Pizza exists beside a wall.
-    """
+    # Your solution!
     def moveTowardPizza(self, cat):
-        # Follow the right wall.
-        is_wall_on_right = self.wall_on_right(cat)
-
-        if not is_wall_on_right and self.was_wall_on_right_last_frame:
-            cat.turnRight()
-            cat.walk()
-
-        if is_wall_on_right:
-            if not cat.isBlocked():
+        # Wheeeee!
+        if ccircle.isKeyDown("up"):
+            if not self.hasPressed:
                 cat.walk()
-            else:
+                #self.hasPressed = True
+        elif ccircle.isKeyDown("left"):
+            if not self.hasPressed:
                 cat.turnLeft()
-
-        self.was_wall_on_right_last_frame = is_wall_on_right
-
+                #self.hasPressed = True
+        elif ccircle.isKeyDown("right"):
+            if not self.hasPressed:
+                cat.turnRight()
+                #self.hasPressed = True
+        #else:
+            #if self.hasPressed:
+                #self.hasPressed = False
+        #instructor testing pushing

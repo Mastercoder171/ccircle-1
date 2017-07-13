@@ -3,7 +3,7 @@ import world
 import ccircle
 import random
 import ball
-
+import sun
 window = ccircle.Window("Lab 1", 800, 800)
 my_world = world.World("blah")
 
