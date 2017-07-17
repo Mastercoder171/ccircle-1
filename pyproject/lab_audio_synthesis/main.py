@@ -16,5 +16,9 @@ def sine(t, f):
 for i in range(44100):
     t = i / 44100
     mysound.addSample(sine(t, 440))
+for i in range (100)
+    if i % 2 == 1:
+
+
 mysound.play()
 time.sleep(1)
