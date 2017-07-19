@@ -3,7 +3,7 @@ import ccircle
 
 class player:
 
-    def __init__(self, angle, x, y, width, height, size):
+    def __init__(self, angle, x, y, width, height, size, money):
         self.pice1 = ccircle.Image("pice 4.jpg")
         self.angle = angle
         self.x = x
@@ -16,13 +16,5 @@ class player:
     def draw(self):
         self.pice1.draw(self.x, self.y, self.width, self.height, self.angle)
 
-'''
-        if self.state == 'right':
-            self.pice1.draw(100, 100, 10, 10, 90)
-
-        if self.state == 'down':
-            self.pice1.draw(100, 100, 10, 10, 180)
-
-        if self.state == 'left':
-            self.pice1.draw(100, 100, 10, 10, 270)
-'''
+    def return_balance(self):
+        print(self.money)
