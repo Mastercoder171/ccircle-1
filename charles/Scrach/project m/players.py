@@ -16,5 +16,4 @@ class player:
     def draw(self):
         self.pice1.draw(self.x, self.y, self.width, self.height, self.angle)
 
-    def return_balance(self):
-        print(self.money)
+  #  def return_balance(self):
